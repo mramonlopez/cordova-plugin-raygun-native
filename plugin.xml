@@ -38,5 +38,6 @@
         <source-file src="src/ios/RaygunNativePlugin.swift"/>
         <framework src="src/ios/Raygun4iOS.framework" custom="true"/>
         <framework src="libc++.dylib"/>
+        <dependency id="cordova-plugin-swift-support" version="~3.1.0"/>
     </platform>
 </plugin>
