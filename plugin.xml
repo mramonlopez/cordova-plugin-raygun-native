@@ -37,5 +37,6 @@
         </config-file>
         <source-file src="src/ios/RaygunNativePlugin.swift"/>
         <framework src="src/ios/Raygun4iOS.framework" custom="true"/>
+        <framework src="libc++.dylib"/>
     </platform>
 </plugin>
