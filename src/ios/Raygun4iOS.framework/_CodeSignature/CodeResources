@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Raygun.h</key>
 		<data>
-		gJx2IHkFLOGkXFY/+re6wfESymM=
+		CVMzhJsyf0XzmqFrcSfRDQTdluY=
 		</data>
 		<key>Headers/Raygun4iOS.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		xpj6menEzWWZbV/cG6lnb9SZvUQ=
+		tpnutrizdl549SQxCy78IMdvvG4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -37,26 +37,58 @@
 	<key>files2</key>
 	<dict>
 		<key>Headers/Raygun.h</key>
-		<data>
-		gJx2IHkFLOGkXFY/+re6wfESymM=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			CVMzhJsyf0XzmqFrcSfRDQTdluY=
+			</data>
+			<key>hash2</key>
+			<data>
+			jzv+FUzc9lAL6iljMzMh+EdcIEI0w4tF5liN6ilbsDk=
+			</data>
+		</dict>
 		<key>Headers/Raygun4iOS.h</key>
-		<data>
-		yvipt7p5jd7Aihs2KT10ggDWRyg=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			yvipt7p5jd7Aihs2KT10ggDWRyg=
+			</data>
+			<key>hash2</key>
+			<data>
+			Fb9fPTppttLASgLl0lsDlI5/EoAtgILulIqtZQzkG90=
+			</data>
+		</dict>
 		<key>Headers/RaygunUserInfo.h</key>
-		<data>
-		pkIpeyjzSeuAY5k320SecTe63rE=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			pkIpeyjzSeuAY5k320SecTe63rE=
+			</data>
+			<key>hash2</key>
+			<data>
+			p2BZEbbuawSngQk+kkIkODLArEDAO686lkI+wBawdcM=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
-		<data>
-		5XBNgRTJ809SBbyHridd1PlgZc4=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			5XBNgRTJ809SBbyHridd1PlgZc4=
+			</data>
+			<key>hash2</key>
+			<data>
+			Mm51vWEqb+AVf0quRdMro4EXH/FjrckCijhUbCeNQzw=
+			</data>
+		</dict>
 		<key>en.lproj/InfoPlist.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
 			zmV6UqBSo6r1NOz798vd5O4zTBA=
+			</data>
+			<key>hash2</key>
+			<data>
+			kmHsztpgjvF0JW5f3HdMHm49z1M0CcG8OT1JDQHHE/E=
 			</data>
 			<key>optional</key>
 			<true/>

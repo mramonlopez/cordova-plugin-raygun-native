@@ -1,6 +1,8 @@
 # cordova-plugin-raygun-native
 iOS and Android native side integration of Raygun for cordova projects.
 
+**AgriWebb fork updates version of SDKs**
+
 ## SETUP
 
 to set your android api use the plugin variable when adding to your project

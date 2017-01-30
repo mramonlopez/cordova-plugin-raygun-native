@@ -1,29 +1,34 @@
 /*
  Raygun.h
  Raygun4iOS
-
+ 
  Copyright (C) 2013 Mindscape
-
+ 
  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
  permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
+ 
  The above copyright notice and this permission notice shall be included in all copies or substantial portions
  of the Software.
-
+ 
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
  THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
-
+ 
  Author: Martin Holman, martin@raygun.io
-
-*/
+ 
+ */
 
 #import <Foundation/Foundation.h>
 #import "RaygunUserInfo.h"
+
+typedef enum {
+    ViewLoaded,
+    NetworkCall
+} RaygunPulseEventType;
 
 @interface Raygun : NSObject
 
@@ -38,11 +43,11 @@
 /**
  Creates and returns a singleton raygun reporter with the given API key. The reporter will automatically report crashes.
  If a singleton has already been created, this method has no effect
-
+ 
  @param theApiKey The Raygun API key
-
+ 
  @return A new singleton crash reporter with the given API key, or an existing reporter. The existing reporter will have the originally
-         specified API key
+ specified API key
  */
 + (id)sharedReporterWithApiKey:(NSString *)theApiKey;
 
@@ -81,12 +86,29 @@
 + (id)sharedReporter;
 
 /**
+ Causes this raygun reporter to automatically post Pulse data (Real User Monitoring) to Raygun.
+ Pulse data includes when your app starts and closes, how long it takes for views to load and the performance timing of network/api calls.
+ 
+ @return This raygun reporter.
+ */
+- (id)attachPulse;
+
+/**
+ Causes this raygun reporter to automatically post Pulse data (Real User Monitoring) to Raygun.
+ 
+ @param networkLogging Whether or not to enable automatic network performance logging
+ 
+ @return This raygun reporter.
+ */
+- (id)attachPulseWithNetworkLogging:(bool)networkLogging;
+
+/**
  Creates and returns a raygun reporter with the given API key. The reporter will automatically report crashes.
  Use this to manage the crash reporter singleton yourself.
  
  @warning you should only have one instance of the reporter for your application, do not create multiple instances of the reporter
  or use the shared reporter along side this method.
-
+ 
  @param theApiKey the Raygun API key
  
  @return a new raygun crash reporter
@@ -130,9 +152,9 @@
 - (void)crash;
 
 /**
-  Manually send an exception to Raygun with the current state of execution.
+ Manually send an exception to Raygun with the current state of execution.
  
-  @warning backtrace will only be populated if you have caught the exception
+ @warning backtrace will only be populated if you have caught the exception
  */
 - (void)send:(NSException *)exception;
 
@@ -161,6 +183,11 @@
 - (void)sendError:(NSError *)error withTags:(NSArray *)tags withUserCustomData:(NSDictionary *)userCustomData;
 
 /**
+ Manually send a Pulse (RUM) timing event to Raygun.
+ */
+- (void)sendPulseTimingEvent:(RaygunPulseEventType)eventType withName:(NSString*)name withDuration:(int)milliseconds;
+
+/**
  Identify a user to Raygun. This can be a database id or an email address. Anonymous users
  will have a device id generated for them, you do not need to call this method to identify
  anonymous users.
@@ -174,5 +201,15 @@
  The information set with this method will take precedence over the identify method.
  */
 - (void)identifyWithUserInfo:(RaygunUserInfo *)userInfo;
+
+/**
+ Do not send timing events for views that match a certain name.
+ */
+- (void)ignoreViews:(NSArray *)viewNames;
+
+/**
+ Do not send timing events for urls that match a certain url.
+ */
+- (void)ignoreURLs:(NSArray *)urls;
 
 @end

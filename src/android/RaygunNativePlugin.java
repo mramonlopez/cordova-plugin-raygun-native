@@ -26,15 +26,15 @@ public class RaygunNativePlugin extends CordovaPlugin {
         this.cordova.getThreadPool().execute(new Runnable() {
             @Override
             public void run() {
-                RaygunClient.Init(context);
-                RaygunClient.AttachExceptionHandler();
+                RaygunClient.init(context);
+                RaygunClient.attachExceptionHandler();
                 try {
                     JSONObject obj = data.getJSONObject(0);
                     String message;
                     if (obj.has("user")) {
                         RaygunUserInfo user = new RaygunUserInfo();
-                        user.FullName = obj.getString("user");
-                        RaygunClient.SetUser(user);
+                        user.setFullName(obj.getString("user"));
+                        RaygunClient.setUser(user);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
