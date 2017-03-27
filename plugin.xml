@@ -10,33 +10,36 @@
     <js-module src="www/RaygunNativePlugin.js" name="RaygunNativePlugin">
         <clobbers target="RaygunNative"/>
     </js-module>
+    <engines>
+        <engine name="cordova" version=">=6.4.0" />
+        <engine name="cordova-ios" version=">=4.3.0" />
+    </engines>
     <platform name="android">
-
-    	<!-- Require API key -->
+        <!-- Require API key -->
         <preference name="ANDROID_API_KEY"/>
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="RaygunNativePlugin">
-                <param name="android-package" value="io.happie.raygun.RaygunNativePlugin"/>
+                <param name="android-package" value="com.manuelramonlopez.raygun.RaygunNativePlugin"/>
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="application">
-            <service   android:name="main.java.com.mindscapehq.android.raygun4android.RaygunPostService"
-                       android:exported="false" android:process=":raygunpostservice"/>
-	        <meta-data android:name="com.mindscapehq.android.raygun4android.apikey" android:value="$ANDROID_API_KEY"/>
+            <service android:name="main.java.com.mindscapehq.android.raygun4android.RaygunPostService" android:exported="false" android:process=":raygunpostservice"/>
+            <meta-data android:name="com.mindscapehq.android.raygun4android.apikey" android:value="$ANDROID_API_KEY"/>
         </config-file>
-        <source-file src="src/android/RaygunNativePlugin.java" target-dir="src/io/happie/raygun"/>
-        <source-file src="src/android/raygun4android-3.0.0.jar" target-dir="libs" />
+        <source-file src="src/android/RaygunNativePlugin.java" target-dir="src/com/manuelramonlopez/raygun"/>
+        <framework src="com.google.code.gson:gson:2.1" />
+        <framework src="com.mindscapehq.android:raygun4android:3.0.0" />
     </platform>
 
-<platform name="ios">
+    <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="RaygunNativePlugin">
                 <param name="ios-package" value="RaygunNativePlugin"/>
             </feature>
         </config-file>
         <source-file src="src/ios/RaygunNativePlugin.swift"/>
-        <framework src="src/ios/Raygun4iOS.framework" custom="true"/>
+        <framework src="Raygun4iOS" type="podspec" spec="~> 2.3.3" />
         <framework src="libc++.dylib"/>
         <dependency id="cordova-plugin-swift-support" version="~3.1.0"/>
     </platform>
