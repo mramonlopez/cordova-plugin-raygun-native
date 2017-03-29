@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="happie-plugin-cordova-raygun"
-        version="1.0.0">
+        id="cordova-plugin-raygun-native"
+        version="1.1.0">
     <name>RaygunPlugin</name>
     <description>Cordova Raygun Plugin for native iOS and Android SDKs</description>
     <license>MIT</license>
@@ -11,10 +11,10 @@
         <clobbers target="RaygunNativePlugin"/>
     </js-module>
     <platform name="android">
-    
+
     	<!-- Require API key -->
         <preference name="ANDROID_API_KEY"/>
-    
+
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="RaygunNativePlugin">
                 <param name="android-package" value="io.happie.raygun.RaygunNativePlugin"/>
@@ -22,8 +22,8 @@
         </config-file>
         <config-file target="AndroidManifest.xml" parent="application">
             <service   android:name="main.java.com.mindscapehq.android.raygun4android.RaygunPostService"
-                       android:exported="false" android:process=":raygunpostservice"/>                       
-	        <meta-data android:name="com.mindscapehq.android.raygun4android.apikey" android:value="$ANDROID_API_KEY"/>                   
+                       android:exported="false" android:process=":raygunpostservice"/>
+	        <meta-data android:name="com.mindscapehq.android.raygun4android.apikey" android:value="$ANDROID_API_KEY"/>
         </config-file>
         <source-file src="src/android/RaygunNativePlugin.java" target-dir="src/io/happie/raygun"/>
         <source-file src="src/android/raygun4android-1.3.0.jar" target-dir="libs" />

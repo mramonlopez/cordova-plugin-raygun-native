@@ -1,0 +1,32 @@
+{
+  "name": "cordova-plugin-raygun-native",
+  "version": "1.1.0",
+  "description": "Cordova Raygun Plugin for native iOS and Android SDKs",
+  "cordova": {
+    "id": "cordova-plugin-raygun-native",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mramonlopez/cordova-plugin-raygun-native.git"
+  },
+  "keywords": [
+    "cordova",
+    "raygun",
+    "ios",
+    "android",
+    "ecosystem:cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "M. Ramón López, James Spencer, Jeff Burn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mramonlopez/cordova-plugin-raygun-native/issues"
+  },
+  "homepage": "https://github.com/mramonlopez/cordova-plugin-raygun-native#readme"
+}
