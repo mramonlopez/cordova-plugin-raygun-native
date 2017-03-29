@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-raygun-native",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Cordova Raygun Plugin for native iOS and Android SDKs",
   "cordova": {
     "id": "cordova-plugin-raygun-native",
