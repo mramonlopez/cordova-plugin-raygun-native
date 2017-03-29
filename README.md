@@ -15,5 +15,6 @@ Require cordova iOS engine 4.3.0 and Cordova 6.5.0
 For iOS pass in your API via the JS Interface during/after the device ready callback
     RaygunNativePlugin.startNativeRaygun('user_email_address', 'YOUR_API_KEY_HERE');
 
+If you get build errors in XCode check first if you has opened workspace file or project one.
 
-Click your project in Xcode, and then select your main app target. Go to the "Build Settings" tab, search for "Other Linker Flags" and add -lc++.
+If this not fix you problem, click on your project in Xcode, and then select your main app target. Go to the "Build Settings" tab, search for "Other Linker Flags" and add -lc++.

@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-raygun-native"
-        version="1.1.0">
+        version="2.0.0">
     <name>RaygunPlugin</name>
     <description>Cordova Raygun Plugin for native iOS and Android SDKs</description>
     <license>MIT</license>
